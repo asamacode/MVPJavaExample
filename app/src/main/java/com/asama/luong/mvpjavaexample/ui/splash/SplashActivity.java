@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.asama.luong.mvpjavaexample.ui.base.BaseActivity;
+import com.asama.luong.mvpjavaexample.ui.login.LoginActivity;
 
 import javax.inject.Inject;
 
@@ -37,6 +38,9 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
     @Override
     public void openLoginActivity() {
         Toast.makeText(this, "Login", Toast.LENGTH_LONG).show();
+        Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
+        startActivity(intent);
+        finish();
     }
 
     @Override

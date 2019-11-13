@@ -33,4 +33,5 @@ ext {
     rxjava2Version = '2.0.6'
     rxandroidVersion = '2.0.1'
     greenDaoVersion = '3.2.2'
+    calligraphyVersion = '2.2.0'
 }
