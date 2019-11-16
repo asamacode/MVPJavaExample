@@ -22,8 +22,9 @@ import com.asama.luong.mvpjavaexample.utils.NetworkUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class BaseActivity extends AppCompatActivity implements MvpView {
+public abstract class BaseActivity extends AppCompatActivity implements MvpView, BaseFragment.CallBack {
 
     private ProgressDialog mProgressDialog;
 
@@ -47,6 +48,11 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
                 .findViewById(com.google.android.material.R.id.snackbar_text);
         textView.setTextColor(ContextCompat.getColor(this, R.color.white));
         snackbar.show();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     @Override
@@ -126,5 +132,17 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
             mUnBinder.unbind();
         }
         super.onDestroy();
+    }
+
+    protected abstract void setUp();
+
+    @Override
+    public void onFragmentAttached() {
+
+    }
+
+    @Override
+    public void onFragmentDetached(String tag) {
+
     }
 }

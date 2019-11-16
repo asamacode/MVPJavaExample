@@ -56,12 +56,19 @@ public class AppDataManager implements DataManager {
 
     @Override
     public void updateApiHeader(Long userId, String accessToken) {
-
+        mApiHelper.getApiHeader().getProtectedApiHeader().setUserId(userId);
+        mApiHelper.getApiHeader().getProtectedApiHeader().setAccessToken(accessToken);
     }
 
     @Override
     public void setUserAsLoggedOut() {
-
+        updateUserInfo(
+                null,
+                null,
+                DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT,
+                null,
+                null,
+                null);
     }
 
     @Override
@@ -119,7 +126,14 @@ public class AppDataManager implements DataManager {
     @Override
     public void updateUserInfo(String accessToken, Long userId, LoggedInMode loggedInMode,
                                String userName, String email, String profilePicPath) {
+        setAccessToken(accessToken);
+        setCurrentUserId(userId);
+        setCurrentUserLoggedInMode(loggedInMode);
+        setCurrentUserName(userName);
+        setCurrentUserEmail(email);
+        setCurrentUserProfilePicUrl(profilePicPath);
 
+        updateApiHeader(userId, accessToken);
     }
 
     @Override

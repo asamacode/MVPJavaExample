@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.asama.luong.mvpjavaexample.R;
 import com.asama.luong.mvpjavaexample.ui.base.BaseActivity;
+import com.asama.luong.mvpjavaexample.ui.main.MainActivity;
 
 import javax.inject.Inject;
 
@@ -42,13 +43,19 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void openMainActivity() {
-
+        Intent intent = MainActivity.getStartIntent(LoginActivity.this);
+        startActivity(intent);
     }
 
     @Override
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
+    }
+
+    @Override
+    protected void setUp() {
+
     }
 
     public static Intent getStartIntent(Context context) {

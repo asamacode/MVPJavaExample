@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.asama.luong.mvpjavaexample.ui.base.BaseActivity;
 import com.asama.luong.mvpjavaexample.ui.login.LoginActivity;
+import com.asama.luong.mvpjavaexample.ui.main.MainActivity;
 
 import javax.inject.Inject;
 
@@ -28,6 +29,8 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(SplashActivity.this);
+
+        setUp();
     }
 
     public static Intent getStartIntent(Context context) {
@@ -46,6 +49,9 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
     @Override
     public void openMainActivity() {
         Toast.makeText(this, "Main", Toast.LENGTH_LONG).show();
+        Intent intent = MainActivity.getStartIntent(SplashActivity.this);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -57,6 +63,11 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
+    }
+
+    @Override
+    protected void setUp() {
+
     }
 
 }

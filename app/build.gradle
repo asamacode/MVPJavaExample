@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "com.asama.luong.mvpjavaexample"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -29,7 +29,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    defaultConfig{
+    defaultConfig {
         vectorDrawables.useSupportLibrary = true
     }
 }
@@ -46,6 +46,7 @@ dependencies {
 
     //ButterKnife
     implementation 'com.jakewharton:butterknife:10.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
     // dependency injection
@@ -63,6 +64,9 @@ dependencies {
 
     // font
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    // swipe view
+    implementation "com.mindorks:placeholderview:$rootProject.placeholderviewVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

@@ -6,9 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.asama.luong.mvpjavaexample.di.ActivityContext;
 import com.asama.luong.mvpjavaexample.di.PerActivity;
+import com.asama.luong.mvpjavaexample.ui.about.AboutMvpPresenter;
+import com.asama.luong.mvpjavaexample.ui.about.AboutMvpView;
+import com.asama.luong.mvpjavaexample.ui.about.AboutPresenter;
 import com.asama.luong.mvpjavaexample.ui.login.LoginMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.login.LoginMvpView;
 import com.asama.luong.mvpjavaexample.ui.login.LoginPresenter;
+import com.asama.luong.mvpjavaexample.ui.main.MainMvpPresenter;
+import com.asama.luong.mvpjavaexample.ui.main.MainMvpView;
+import com.asama.luong.mvpjavaexample.ui.main.MainPresenter;
 import com.asama.luong.mvpjavaexample.ui.splash.SplashMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.splash.SplashMvpView;
 import com.asama.luong.mvpjavaexample.ui.splash.SplashPresenter;
@@ -61,6 +67,20 @@ public class ActivityModule {
     @PerActivity
     LoginMvpPresenter<LoginMvpView> provideLoginPresenter(
             LoginPresenter<LoginMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    MainMvpPresenter<MainMvpView> provideMainPresenter(
+            MainPresenter<MainMvpView> presenter
+    ) {
+        return presenter;
+    }
+
+    @Provides
+    AboutMvpPresenter<AboutMvpView> provideAboutPresenter(
+            AboutPresenter<AboutMvpView> presenter) {
         return presenter;
     }
 }
