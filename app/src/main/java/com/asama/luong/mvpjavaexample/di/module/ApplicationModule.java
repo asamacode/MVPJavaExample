@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.asama.luong.mvpjavaexample.BuildConfig;
+import com.asama.luong.mvpjavaexample.R;
 import com.asama.luong.mvpjavaexample.data.AppDataManager;
 import com.asama.luong.mvpjavaexample.data.DataManager;
 import com.asama.luong.mvpjavaexample.data.db.AppDbHelper;
@@ -23,6 +24,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 @Module
 public class ApplicationModule {
@@ -94,5 +96,14 @@ public class ApplicationModule {
                 apiKey,
                 preferencesHelper.getCurrentUserId(),
                 preferencesHelper.getAccessToken());
+    }
+
+    @Provides
+    @Singleton
+    CalligraphyConfig provideCalligraphyDefaultConfig() {
+        return new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build();
     }
 }

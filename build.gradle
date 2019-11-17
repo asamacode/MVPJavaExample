@@ -35,4 +35,5 @@ ext {
     greenDaoVersion = '3.2.2'
     calligraphyVersion = '2.2.0'
     placeholderviewVersion = '0.6.1'
+    glideVersion = '3.7.0'
 }

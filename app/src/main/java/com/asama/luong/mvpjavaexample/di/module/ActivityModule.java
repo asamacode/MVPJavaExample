@@ -3,7 +3,9 @@ package com.asama.luong.mvpjavaexample.di.module;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.asama.luong.mvpjavaexample.data.network.model.BlogResponse;
 import com.asama.luong.mvpjavaexample.di.ActivityContext;
 import com.asama.luong.mvpjavaexample.di.PerActivity;
 import com.asama.luong.mvpjavaexample.ui.about.AboutMvpPresenter;
@@ -12,6 +14,7 @@ import com.asama.luong.mvpjavaexample.ui.about.AboutPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedMvpView;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedPresenter;
+import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogAdapter;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogMvpView;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogPresenter;
@@ -29,6 +32,8 @@ import com.asama.luong.mvpjavaexample.ui.splash.SplashMvpView;
 import com.asama.luong.mvpjavaexample.ui.splash.SplashPresenter;
 import com.asama.luong.mvpjavaexample.utils.rx.AppSchedulerProvider;
 import com.asama.luong.mvpjavaexample.utils.rx.SchedulerProvider;
+
+import java.util.ArrayList;
 
 import dagger.Module;
 import dagger.Provides;
@@ -112,5 +117,15 @@ public class ActivityModule {
             BlogPresenter<BlogMvpView> presenter
     ) {
         return presenter;
+    }
+
+    @Provides
+    BlogAdapter provideBlogAdapter() {
+        return new BlogAdapter(new ArrayList<BlogResponse.Blog>());
+    }
+
+    @Provides
+    LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {
+        return new LinearLayoutManager(activity);
     }
 }

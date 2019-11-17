@@ -5,6 +5,7 @@ import com.asama.luong.mvpjavaexample.di.PerActivity;
 import com.asama.luong.mvpjavaexample.di.module.ActivityModule;
 import com.asama.luong.mvpjavaexample.ui.about.AboutFragment;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedActivity;
+import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogFragment;
 import com.asama.luong.mvpjavaexample.ui.login.LoginActivity;
 import com.asama.luong.mvpjavaexample.ui.main.MainActivity;
 import com.asama.luong.mvpjavaexample.ui.main.rating.RateUsDialog;
@@ -27,4 +28,6 @@ public interface ActivityComponent {
     void inject(RateUsDialog dialog);
 
     void inject(FeedActivity activity);
+
+    void inject(BlogFragment fragment);
 }
