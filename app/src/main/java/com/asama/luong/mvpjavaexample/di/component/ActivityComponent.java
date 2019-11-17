@@ -4,8 +4,10 @@ package com.asama.luong.mvpjavaexample.di.component;
 import com.asama.luong.mvpjavaexample.di.PerActivity;
 import com.asama.luong.mvpjavaexample.di.module.ActivityModule;
 import com.asama.luong.mvpjavaexample.ui.about.AboutFragment;
+import com.asama.luong.mvpjavaexample.ui.feed.FeedActivity;
 import com.asama.luong.mvpjavaexample.ui.login.LoginActivity;
 import com.asama.luong.mvpjavaexample.ui.main.MainActivity;
+import com.asama.luong.mvpjavaexample.ui.main.rating.RateUsDialog;
 import com.asama.luong.mvpjavaexample.ui.splash.SplashActivity;
 
 import dagger.Component;
@@ -21,4 +23,8 @@ public interface ActivityComponent {
     void inject(MainActivity activity);
 
     void inject(AboutFragment fragment);
+
+    void inject(RateUsDialog dialog);
+
+    void inject(FeedActivity activity);
 }
