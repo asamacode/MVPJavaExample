@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.asama.luong.mvpjavaexample.data.network.model.BlogResponse;
+import com.asama.luong.mvpjavaexample.data.network.model.OpenSourceResponse;
 import com.asama.luong.mvpjavaexample.di.ActivityContext;
 import com.asama.luong.mvpjavaexample.di.PerActivity;
 import com.asama.luong.mvpjavaexample.ui.about.AboutMvpPresenter;
@@ -13,11 +14,16 @@ import com.asama.luong.mvpjavaexample.ui.about.AboutMvpView;
 import com.asama.luong.mvpjavaexample.ui.about.AboutPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedMvpView;
+import com.asama.luong.mvpjavaexample.ui.feed.FeedPagerAdapter;
 import com.asama.luong.mvpjavaexample.ui.feed.FeedPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogAdapter;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogMvpView;
 import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogPresenter;
+import com.asama.luong.mvpjavaexample.ui.feed.opensource.OpenSourceAdapter;
+import com.asama.luong.mvpjavaexample.ui.feed.opensource.OpenSourceMvpPresenter;
+import com.asama.luong.mvpjavaexample.ui.feed.opensource.OpenSourceMvpView;
+import com.asama.luong.mvpjavaexample.ui.feed.opensource.OpenSourcePresenter;
 import com.asama.luong.mvpjavaexample.ui.login.LoginMvpPresenter;
 import com.asama.luong.mvpjavaexample.ui.login.LoginMvpView;
 import com.asama.luong.mvpjavaexample.ui.login.LoginPresenter;
@@ -127,5 +133,22 @@ public class ActivityModule {
     @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {
         return new LinearLayoutManager(activity);
+    }
+
+    @Provides
+    OpenSourceMvpPresenter<OpenSourceMvpView> provideOpenSourcePresenter(
+            OpenSourcePresenter<OpenSourceMvpView> presenter
+    ){
+        return presenter;
+    }
+
+    @Provides
+    OpenSourceAdapter provideOpenSourceAdapter() {
+        return new OpenSourceAdapter(new ArrayList<OpenSourceResponse.Repo>());
+    }
+
+    @Provides
+    FeedPagerAdapter provideFeedPagerAdapter(AppCompatActivity activity) {
+        return new FeedPagerAdapter(activity.getSupportFragmentManager());
     }
 }

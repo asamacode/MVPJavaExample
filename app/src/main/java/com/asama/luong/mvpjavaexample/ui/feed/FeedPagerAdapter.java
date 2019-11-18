@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.asama.luong.mvpjavaexample.ui.feed.blogs.BlogFragment;
+import com.asama.luong.mvpjavaexample.ui.feed.opensource.OpenSourceFragment;
+
 public class FeedPagerAdapter extends FragmentStatePagerAdapter {
 
     private int mTabCount;
@@ -17,7 +20,15 @@ public class FeedPagerAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return null;
+
+        switch (position) {
+            case 0:
+                return BlogFragment.newInstance();
+            case 1:
+                return OpenSourceFragment.newInstance();
+            default:
+                return null;
+        }
     }
 
     @Override

@@ -27,6 +27,7 @@ import com.asama.luong.mvpjavaexample.data.db.model.Question;
 import com.asama.luong.mvpjavaexample.ui.about.AboutFragment;
 import com.asama.luong.mvpjavaexample.ui.base.BaseActivity;
 import com.asama.luong.mvpjavaexample.ui.custom.RoundedImageView;
+import com.asama.luong.mvpjavaexample.ui.feed.FeedActivity;
 import com.asama.luong.mvpjavaexample.ui.login.LoginActivity;
 import com.asama.luong.mvpjavaexample.ui.main.rating.RateUsDialog;
 import com.asama.luong.mvpjavaexample.utils.ScreenUtils;
@@ -315,7 +316,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
 
     @Override
     public void openMyFeedActivity() {
-//        startActivity(FeedActivity.getStartIntent(this));
+        startActivity(FeedActivity.getStartIntent(this));
     }
 
     @Override
